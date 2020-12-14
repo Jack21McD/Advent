@@ -3,7 +3,7 @@ package Advent.Advent2020.day_01;
 /**
  * d1
  */
-public class d1 {
+public class day_01 {
 
     public static void main(String[] args) {
         int[] arr = { 1941, 1887, 1851, 1874, 1612, 1960, 1971, 1983, 1406, 1966, 1554, 1892, 1898, 1926, 1081, 1992,
@@ -19,6 +19,8 @@ public class d1 {
                 1870, 1108, 190, 1891, 1794, 1228, 1128, 1365, 1740, 1888, 1460, 1758, 1906, 1917, 1989, 1251, 1866,
                 1560, 1921, 1777, 1102, 1850, 1498, 683, 1840, 1800, 1112, 1908, 1442, 1082, 1071 };
         pairSum_2020(arr);
+        System.out.println();
+        tripleSum_2020(arr);
     }
 
     public static void pairSum_2020(int[] A) {
@@ -32,6 +34,34 @@ public class d1 {
                 }
             }
         }
+
+        System.out.println("pairSum");
+        System.out.println(a);
+        System.out.println(b);
         System.out.println(a * b);
+    }
+
+    public static void tripleSum_2020(int[] A) {
+        int a = 0;
+        int b = 0;
+        int c = 0;
+        for (int k = 0; k < A.length; k++) {
+            for (int j = 0; j < A.length; j++) {
+                for (int i = 0; i < A.length; i++) {
+                    if (A[k] + A[j] + A[i] == 2020) {
+                        a = A[k];
+                        b = A[j];
+                        c = A[i];
+                    }
+                }
+
+            }
+        }
+
+        System.out.println("tripleSum");
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+        System.out.println(a * b * c);
     }
 }
