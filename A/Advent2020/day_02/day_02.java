@@ -1,4 +1,4 @@
-
+package day_02;
 /**
  * day_02
  */
@@ -9,7 +9,7 @@ import java.io.*;
 public class day_02 {
 
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("D:/CompSci/CodePersonal/Advent/Advent2020/day_02/day02input.txt");
+        File file = new File("D:/CompSci/CodePersonal/Advent/A/Advent2020/day_02/day02input.txt");
         Scanner user = new Scanner(file);
         ArrayList<String> pwds = new ArrayList<String>();
 

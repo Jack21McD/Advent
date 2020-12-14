@@ -1,4 +1,4 @@
-package Advent.Advent2020.day_01;
+package day_01;
 
 /**
  * d1
