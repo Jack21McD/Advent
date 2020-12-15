@@ -2,10 +2,10 @@ package day_06;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+
+import javax.print.attribute.HashAttributeSet;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.SystemMenuBar;
+
 import java.util.*;
 
 /**
@@ -41,26 +41,44 @@ public class day_06 {
     }
 
     public static int numYes(List<String> questions) {
-        int yesCount = 0;
-        List<Character> yes = new ArrayList<>();
-        // char[] ques = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j',
-        // 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y',
-        // 'z'};
+        // int yesCount = 0;
+        int allYesCount = 0;
+        // List<Character> yes = new ArrayList<>();
+        char[] ques = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q',
+                'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' };
+        Map<Character, Integer> numAns = new HashMap<>();
+
         for (String str : questions) {
+            // Fill hashmap w/ blank alphabet
+            for (char c : ques) {
+                numAns.put(c, 0);
+            }
+
             String[] pcs = str.split(" ");
             for (String s : pcs) {
                 for (int k = 0; k < s.length(); k++) {
-                    if (!yes.contains(s.charAt(k))) {
-                        yes.add(s.charAt(k));
+                    if (numAns.containsKey(s.charAt(k))) {
+                        numAns.put(s.charAt(k), numAns.get(s.charAt(k)) + 1);
                     }
                 }
             }
-            System.out.println(yes);
-            yesCount += yes.size();
-            System.out.println("yesCount: " + yesCount);
-            yes.clear();
+
+            System.out.println(numAns);
+            for (int i : numAns.values()) {
+                if (i == pcs.length) {
+                    allYesCount++;
+                }
+            }
+            System.out.println("allYesCount: " + allYesCount);
+            // System.out.println(yes);
+            // yesCount += yes.size();
+            // System.out.println("yesCount: " + yesCount);
+            // yes.clear();
+            numAns.clear();
         }
-        System.out.println("Final count: " + yesCount);
-        return yesCount;
+        // System.out.println("Final count: " + yesCount);
+        // return yesCount;
+        System.out.println("Final count: " + allYesCount);
+        return allYesCount;
     }
 }
